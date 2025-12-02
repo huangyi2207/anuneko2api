@@ -19,10 +19,21 @@ A lightweight proxy that converts Anuneko services into a standard OpenAI API fo
    PROXY_API_KEYS=["sk-your-api-key"]
    ```
 
-2. Run the container:
+2. Build and run the container:
    ```bash
-   docker run -d -p 8000:8000 --env-file .env --name anuneko-proxy ghcr.io/your-repo/anuneko-proxy:latest
+   docker build -t anuneko-proxy .
    ```
+
+   ```bash
+   docker run -d \
+     --name my-anuneko \
+     -p 8000:8000 \
+     --env-file .env \
+     anuneko-proxy
+   ```
+3. OR run directly:
+   ```bash
+   python -m app.main
 
 ## ⚙️ Configuration
 

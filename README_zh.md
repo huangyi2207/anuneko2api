@@ -11,7 +11,7 @@
 *   **多模型支持**：支持通过模型名称自动切换“橘猫”与“黑猫”。
 *   **安全隔离**：支持自定义 API Key 进行访问控制。
 
-## 🚀 快速部署 (Docker)
+## 🚀 快速部署
 
 1. 创建配置文件 `.env`：
    ```dotenv
@@ -19,11 +19,22 @@
    PROXY_API_KEYS=["sk-你的key1", "sk-你的key2"]
    ```
 
-2. 启动容器：
+2. 构建并启动容器：
    ```bash
-   docker run -d -p 8000:8000 --env-file .env --name anuneko-proxy ghcr.io/your-repo/anuneko-proxy:latest
+   docker build -t anuneko-proxy .
    ```
-   *(或者手动构建: `docker build -t anuneko-proxy .`)*
+
+   ```bash
+   docker run -d \
+     --name my-anuneko \
+     -p 8000:8000 \
+     --env-file .env \
+     anuneko-proxy
+   ```
+3. 或 直接运行:
+   ```bash
+   python -m app.main
+   ```
 
 ## ⚙️ 配置说明
 
